@@ -60,6 +60,18 @@ def lista_cursos(request):
 #            'cursos': ['ADS' , 'SI', 'CC'],
             'cursos': Curso.objects.all(),
             'year':datetime.now().year,
+            
+def lista_de_candidatos(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/lista_de_candidatos.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Cadastro de candidatos',
+#            'cursos': ['ADS' , 'SI', 'CC'],
+            'cursos': Candidatos.objects.all(),
+            'year':datetime.now().year,            
         })
     )
 
